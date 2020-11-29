@@ -9,20 +9,22 @@ import time
 # Passo 3: Calcular actualizações de peso usando as regras do perceptron.
 # Passo 4: Actualizar os pesos e o enviesamento.
 
+class perceptron():
+    """ Perceptron: Neurónio artificial para classificação binária"""
 
-# Dataset
-# Gerar cluster aleatório normalmente distribuido  
-def sample_generator():
-    dados = {}
-    dados["x1"] = np.random.normal(loc=3.0, size=25)
-    dados["y1"] = np.random.normal(loc=2.0, size=25)
-    dados["x2"] = np.random.normal(loc=9.0, size=25)
-    dados["y2"] = np.random.normal(loc=7.0, size=25)
-    return dados
+    def __init__ (self, n_iterations = 100, learning_rate = 0.01):
+        # Iniciar pesos e enviesamento.
+        self.iterations = n_iterations
+        self.learning = learning_rate
+        self.activatio_function = self.sigmoid
+        self.weights = 0
+        self.bias = 0
 
-dados = sample_generator()
+    def fit(self, X, y):        
+        pass
 
-# visualizar dados
-plt.scatter(dados["x1"],dados["y1"],color='#023047', marker="o",s=25)
-plt.scatter(dados["x2"],dados["y2"],color='#fb8500', marker="o",s=25)
-plt.show()
+    def predict(self, X):
+        pass        
+    
+    def sigmoid(self, X):
+        return np.where(1/(1+np.exp(-x)))
