@@ -11,7 +11,8 @@
 **Perceptron** também designado por neurônio artificial é uma função matemática de classificação binária (aprendizagem supervisionada). Análogo à unidade básica do sistema nervoso, esta recebe diversos imputs que são processados gerando um outpout único.
 
 ## Requisitos
-* pynthon 3.8
+* Pynthon 3.8.5
+* Numpy 1.19.2
 
 ## Créditos
 [Carla M. Lemos](https://github.com/CarlaMLemos) 
