@@ -55,5 +55,5 @@ class perceptron():
         denom[denom==0] = 1
         return x_min + nom/denom
 
-     def __call__(self):
-         return [self.weights, self.bias]
+    def __call__(self):
+        return [self.weights, self.bias]
