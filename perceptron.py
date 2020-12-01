@@ -50,4 +50,10 @@ class perceptron():
 
 
     def scale(self, X, x_min, x_max):
-        pass
+        nom = (X-X.min(axis=0))*(x_max-x_min)
+        denom = X.max(axis=0) - X.min(axis=0)
+        denom[denom==0] = 1
+        return x_min + nom/denom
+
+     def __call__(self):
+         return [self.weights, self.bias]

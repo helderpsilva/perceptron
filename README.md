@@ -26,6 +26,5 @@ Remover o ambiente
 `$ conda env remove -n perceptron`
 
 ## Créditos
-[Carla M. Lemos](https://github.com/CarlaMLemos) 
-[Hélder P. Silva ](https://github.com/helderpsilva)
+Criado por [Carla M. Lemos](https://github.com/CarlaMLemos) e [Hélder P. Silva ](https://github.com/helderpsilva)
 
