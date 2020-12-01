@@ -16,18 +16,38 @@ class perceptron():
         # Iniciar pesos e enviesamento.
         self.iterations = n_iterations
         self.learning = learning_rate
-        self.activatio_function = self.sigmoid
-        self.weights = 0
-        self.bias = 0
+        self.activation_function = self.sigmoid
+        self.weights= None
+
 
     def fit(self, X, y):        
-        pass
+        n_samples, n_features = X.shape
+        self.weights = np.zeros(n_features)
+        self.bias = 0.05
+        y_real = np.array(y)
+
+        sum_error = 0.0
+
+        for _ in range(self.iterations):
+          for index, xi in  enumerate(X):
+            predicted_value = self.predict(xi)
+            update = self.learning * (y_real[index] - predicted_value)
+
+            error = y_real[index] - predicted_value
+            sum_error = error ** 2
+            self.weights += update * xi 
+            self.bias += update
+
 
     def predict(self, X):
-        pass        
-    
+        activation = np.dot(X, self.weights) + self.bias
+        y_predicted = self.activation_function(activation)
+        return y_predicted       
+
+
     def sigmoid(self, X):
          return 1/(1+np.exp(-X))
 
-     def scale(self, X, x_min, x_max):
-         pass
+
+    def scale(self, X, x_min, x_max):
+        pass
