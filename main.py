@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from perceptron import perceptron
 
+
+
 # Utilizador deverá escolher:
 # 1. Numero de iterações
 # 2. Minima alteração do erro
@@ -22,12 +24,62 @@ data = np.column_stack((x, y))
 data_label = np.array(label)
 
 
-p = perceptron(8,0.01)
+def user_imputs():
+    print ("1.Número de iterações (default = 100)") 
+    n_iterations = input()
+    if n_iterations == "":
+        no_compliance = False
+    else:
+        no_compliance = True
+    while no_compliance:
+        try:
+            n_iterations = int(n_iterations)
+            no_compliance = False
+            break
+        except ValueError:
+            print("Por favor, indique um número inteiro")
+            n_iterations = input()
+    
+    print ("2. Mínima alteração de erro (default = none)") 
+    min_error = input()
+    if min_error == "":
+        no_compliance = False
+    else:
+        no_compliance = True
+    while no_compliance:
+        try:
+            min_error = float(min_error)
+            no_compliance = False
+            break
+        except ValueError:
+            print("Por favor, indique um número")
+            min_error = input()
+    
+    print ("3. Probabilidade a partir da qual o algoritmo escolhe uma ou outra classe (default = 0.5)")
+    prob = input()
+    if prob == "":
+        no_compliance = False
+    else:
+        no_compliance = True
+    while no_compliance:
+        try:
+            prob = float(prob)
+            no_compliance = False
+            break 
+        except ValueError:
+            print("Por favor, indique um número entre 0 e 1")
+            prob = input()
+
+    return n_iterations, min_error, prob
+
+n_iterations, min_error, prob = user_imputs()
+
+p = perceptron(n_iterations,0.01)
 standard_data = p.scale(data,0,1)
 p.fit(standard_data, data_label)
 predicted = p.predict(standard_data)
+predicted_adjusted = [1 if predicted[i] > prob else 0 for i in range(sample)]
 
-predicted_adjusted = [1 if predicted[i] > 0.5 else 0 for i in range(sample)]
 
 plt.scatter(data[:,0], data[:,1],c=predicted_adjusted, marker="o",s=25)
 plt.show()
