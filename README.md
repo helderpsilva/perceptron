@@ -28,10 +28,7 @@ $ conda env remove -n perceptron
 
 ## Utilização:
 
-<p align="center">
-        <img width="90%" src="/img/utilizacao.svg" alt="Utilização">
-    </a>
-</p>
+
 
 ### Bibliotecas utilizadas:
 * Numpy
