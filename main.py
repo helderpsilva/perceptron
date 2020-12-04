@@ -3,32 +3,34 @@ import matplotlib.pyplot as plt
 from perceptron import perceptron
 
 
-
-# Utilizador deverá escolher:
-# 1. Numero de iterações
-# 2. Minima alteração do erro
-# 3. Probabilidade de o utilizador escolher uma ou outra class
-
 # Dataset
 # Gerar cluster aleatório normalmente distribuido  
+
 def sample_generator(sample_size=20):
     x = (np.random.normal(loc=3.0, size=int(sample_size/2)).tolist()) + (np.random.normal(loc=9.0, size=int(sample_size/2)).tolist())
     y = (np.random.normal(loc=2.0, size=int(sample_size/2)).tolist()) + (np.random.normal(loc=7.0, size=int(sample_size/2)).tolist())
     label = [1 if i > int(sample_size/2-1)  else 0 for i in range(sample_size)]
     return x, y, label
 
-sample = 350
+sample = 100
 x,y,label = sample_generator(sample)
 
 data = np.column_stack((x, y))
 data_label = np.array(label)
 
 
+# Interação com o utilizador:
+# 1. Numero de iterações
+# 2. Minima alteração do erro
+# 3. Probabilidade de o utilizador escolher uma ou outra classe
+
 def user_imputs():
+# O programa corre o máximo número de interações ou o menor erro, consoante o que ocorrer primeiro
     print ("1.Número de iterações (default = 100)") 
     n_iterations = input()
     if n_iterations == "":
         no_compliance = False
+        n_iterations = 100
     else:
         no_compliance = True
     while no_compliance:
@@ -40,10 +42,11 @@ def user_imputs():
             print("Por favor, indique um número inteiro")
             n_iterations = input()
     
-    print ("2. Mínima alteração de erro (default = none)") 
+    print ("2. Mínima alteração de erro (default = 0)") 
     min_error = input()
     if min_error == "":
         no_compliance = False
+        min_error = 0
     else:
         no_compliance = True
     while no_compliance:
@@ -59,12 +62,17 @@ def user_imputs():
     prob = input()
     if prob == "":
         no_compliance = False
+        prob = 0.5
     else:
         no_compliance = True
     while no_compliance:
         try:
             prob = float(prob)
-            no_compliance = False
+            if prob < 0 or prob > 1:
+                raise ValueError
+            else:
+                no_compliance = False
+                break
             break 
         except ValueError:
             print("Por favor, indique um número entre 0 e 1")
@@ -74,22 +82,14 @@ def user_imputs():
 
 n_iterations, min_error, prob = user_imputs()
 
-p = perceptron(n_iterations,0.01)
+p = perceptron(n_iterations,0.01, min_error)
 standard_data = p.scale(data,0,1)
-p.fit(standard_data, data_label)
+fitted = p.fit(standard_data, data_label)
+
 predicted = p.predict(standard_data)
 predicted_adjusted = [1 if predicted[i] > prob else 0 for i in range(sample)]
 
 
+
 plt.scatter(data[:,0], data[:,1],c=predicted_adjusted, marker="o",s=25)
 plt.show()
-
-# dados = sample_generator()
-# visualizar dados
-# plt.scatter(dados["x1"],dados["y1"],color='#023047', marker="o",s=25)
-# plt.scatter(dados["x2"],dados["y2"],color='#fb8500', marker="o",s=25)
-# plt.show()
-
-
-
-
