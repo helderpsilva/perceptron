@@ -25,6 +25,7 @@ $ conda activate perceptron
 # Remover o ambiente virtual
 $ conda env remove -n perceptron
 ```
+
 ## Utilização:
 
 <p align="center">
