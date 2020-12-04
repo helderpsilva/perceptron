@@ -6,25 +6,36 @@
 
 <br/>
 
-**Perceptron** também designado por neurônio artificial é uma função matemática de classificação binária (aprendizagem supervisionada). Análogo à unidade básica do sistema nervoso, esta recebe diversos imputs que são processados gerando um outpout único.
+> **Perceptron** também designado por neurônio artificial é uma função matemática de classificação binária (aprendizagem supervisionada). Análogo à unidade básica do sistema nervoso, esta recebe diversos imputs que são processados gerando um outpout único.
+> 
+## Instalação:
 
-## Requisitos
-* Pynthon 3.8.5
-* Numpy 1.19.2
+#### Recomendações
+1. Windows ou macOS
 
-## Preparar o ambiente
-Criar o ambiente
+Instalar Miniconda - Utilizar os seguintes comandos para criar um ambiente com todas as bibliotecas necessárias ao projeto.
 
-`$ conda env create -f environment.yaml`
+```bash
+# criar o ambiente virtual
+$ conda env create -f environment.yaml
 
-Ativar o ambiente
+# Ativar o ambiente virtual
+$ conda activate perceptron
 
-`$ conda activate perceptron` 
+# Remover o ambiente virtual
+$ conda env remove -n perceptron
+```
+## Utilização:
 
-Remover o ambiente
+<p align="center">
+        <img width="90%" src="/img/utilizacao.svg" alt="Utilização">
+    </a>
+</p>
 
-`$ conda env remove -n perceptron`
+### Bibliotecas utilizadas:
+* Numpy
+* Matplotlib
 
-## Créditos
+## Contribuições:
 Criado por [Carla M. Lemos](https://github.com/CarlaMLemos) e [Hélder P. Silva ](https://github.com/helderpsilva)
 
