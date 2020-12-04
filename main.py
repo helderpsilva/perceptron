@@ -26,7 +26,7 @@ data_label = np.array(label)
 
 def user_imputs():
 # O programa corre o máximo número de interações ou o menor erro, consoante o que ocorrer primeiro
-    print ("1.Número de iterações (default = 100)") 
+    print ("\n 1.Número de iterações (default = 100)") 
     n_iterations = input()
     if n_iterations == "":
         no_compliance = False
@@ -82,14 +82,25 @@ def user_imputs():
 
 n_iterations, min_error, prob = user_imputs()
 
+# Inicializar uma nova instância do perceptron com os dados obtidos do utilizador.
 p = perceptron(n_iterations,0.01, min_error)
+
+# Normalização dos dados.
 standard_data = p.scale(data,0,1)
+
+# Treino do modelo.
 fitted = p.fit(standard_data, data_label)
 
+# Gerar previsão.
 predicted = p.predict(standard_data)
 predicted_adjusted = [1 if predicted[i] > prob else 0 for i in range(sample)]
 
+# Gerar visualização gráfica da previsão obtida.
+x = np.linspace(min(standard_data[:,0]), max(standard_data[:,0]), num=50)
+m = (-(p.bias / p.weights[1])/(p.bias / p.weights[0]))*x + (- p.bias / p.weights[1])
 
 
-plt.scatter(data[:,0], data[:,1],c=predicted_adjusted, marker="o",s=25)
+plt.scatter(standard_data[:,0], standard_data[:,1],c=predicted_adjusted, marker="o",s=25)
+plt.plot(x,m)
 plt.show()
+
