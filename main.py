@@ -22,7 +22,7 @@ data_label = np.array(label)
 # Interação com o utilizador:
 # 1. Numero de iterações
 # 2. Minima alteração do erro
-# 3. Probabilidade de o utilizador escolher uma ou outra classe
+# 3. Probabilidade do utilizador escolher uma ou outra classe
 
 def user_imputs():
 # O programa corre o máximo número de interações ou o menor erro, consoante o que ocorrer primeiro
