@@ -17,12 +17,6 @@
 
 > **Perceptron** também designado por neurônio artificial é uma função matemática de classificação binária (aprendizagem supervisionada). Análogo à unidade básica do sistema nervoso, esta recebe diversos imputs que são processados gerando um único outpout.
 > 
-<p align="center">
-        <img width="65%" src="/img/esquema_perceptron.svg" alt="Esquema Perceptron">
-    </a>
-</p>
-
-
 
 ## Instalação
 
