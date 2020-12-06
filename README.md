@@ -38,16 +38,16 @@ $ conda activate perceptron
 # Remover o ambiente virtual
 $ conda env remove -n perceptron
 ```
-Para o caso de ocorrer algum problema durante a instalação, poderás recorrer à instalação manual das bibliotecas com `pip instal numpy`e `pip instal matplotlib`
+Caso ocorra algum problema durante a instalação, deverá recorrer a `pip instal numpy`e `pip instal matplotlib` para instalar as bibliotecas manualmente.
 
 ## Utilização
 
-> Para testares o perceptron, poderas correr o comando `python main.py` dentro do diretorio do programa. 
+> O **Perceptron** poderá ser testado correndo o comando `python main.py` no diretório do programa. 
 
-Em alternativa, é possivel incorporares o módulo `perceptron.py` no teu código recorrendo ao exemplo abaixo apresentado.
+Em alternativa, é possível incorporar o módulo `perceptron` no seu código, de acordo com o exemplo apresentado.
 
 <p align="center">
-        <img width="70%" src="/img/utilizacao.svg" alt="Utilização">
+        <img width="90%" src="/img/utilizacao.svg" alt="Utilização">
     </a>
 </p>
 
