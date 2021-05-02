@@ -55,7 +55,7 @@ from perceptron import perceptron
 # Criar uma nova instância do objeto perceptron. 
 # n_iterations - numero de épocas de treino do modelo. 
 # learning_rate - taxa de aprendizagem. 
-# min error - mínima alteracao do erro entre iteraçõess
+# min error - mínima alteracao do erro entre iterações
 
 p = perceptron(n_iterations = 100, learning_rate = 0.01, min_error = 0.01)
 
@@ -73,7 +73,8 @@ predicted = p.predict(normalized_test)
 b = np.linspace(min(normalized_test[:,0]), max(normalized_test[:,0]), num=50)
 m = (-(p.bias / p.weights[1])/(p.bias / p.weights[0])) * b + (-p.bias / p.weights[1]) 
 
-plt.scatter(normalized_test[:,0] normalized test[:,1], c = predicted, s=25) plt.plot(b,m) 
+plt.scatter(normalized_test[:,0] normalized test[:,1], c = predicted, s=25)
+plt.plot(b,m) 
 plt.show() 
 
 ```
